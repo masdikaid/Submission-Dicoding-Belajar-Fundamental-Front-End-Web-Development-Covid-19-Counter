@@ -1,5 +1,5 @@
-import {fetching} from "./api.js"
-import {renderContentDunia, renderItemNegara} from "./render.js"
+import {fetching} from "./scripts/api.js"
+import {renderContentDunia, renderItemNegara} from "./scripts/render.js"
 
 async function renderingData(){
     const ra = await fetching()
