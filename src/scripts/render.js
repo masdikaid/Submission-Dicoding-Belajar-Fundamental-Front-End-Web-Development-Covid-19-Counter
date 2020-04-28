@@ -26,27 +26,27 @@ function renderItemNegara(data){
     news.classList.add("card-sm","col-md-6","col-lg-4","my-2","container")
     news.innerHTML=`
                 <div class="shadow-sm card">
-                <header class="p-2"><h6>${items.negara}</h6></header>
+                <header class="p-2"><h4 class="font-weight-bold ml-3 my-2" >${items.negara}</h4></header>
                 <div class="container d-flex">
                     <div class="flex-grow-1">
                         <div>
-                            <header><h6>Positif</h6></header>
-                            <p>${items.positif}</p>
+                            <header><p class=" my-0 font-weight-bold" >Positif</p></header>
+                            <h6 class="my-0 mb-1 font-weight-bold">${items.positif}</h6>
                         </div>
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <header><h6>Sembuh</h6></header>
-                                <p>${items.sembuh}</p>
+                                <header><p class="my-0 font-weight-bold" >Sembuh</p></header>
+                                <h6 class="my-0 font-weight-bold">${items.sembuh}</h6>
                             </div>
                             <div class="flex-grow-1">
-                                <header><h6>Meninggal</h6></header>
-                                <p>${items.meninggal}</p>
+                                <header><p class="my-0 font-weight-bold">Meninggal</p></header>
+                                <h6 class="my-0 font-weight-bold">${items.meninggal}</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="flex-grow-1 card p-2 mb-4 justify-content-center align-items-center">
-                        <header><h6>Total</h6></header>
-                        <p>${items.total}</p>
+                    <div class="flex-grow-1 card p-2 mb-4 justify-content-center align-items-center border-danger">
+                        <header><p class="font-weight-bold" >Total</p></header>
+                        <h4 class="font-weight-bold" >${items.total}</h4>
                     </div>
                 </div>
             </div>
