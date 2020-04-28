@@ -1,0 +1,43 @@
+{
+  "name": "covid-19care",
+  "version": "1.0.0",
+  "description": "covid counter system",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "console.log(\"testing....\")",
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masdikaid/Submission-Dicoding-Belajar-Fundamental-Front-End-Web-Development-Covid-19-Counter.git"
+  },
+  "keywords": [
+    "covid-counter-status"
+  ],
+  "author": "masdika ID",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masdikaid/Submission-Dicoding-Belajar-Fundamental-Front-End-Web-Development-Covid-19-Counter/issues"
+  },
+  "homepage": "https://github.com/masdikaid/Submission-Dicoding-Belajar-Fundamental-Front-End-Web-Development-Covid-19-Counter#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1",
+    "regenerator-runtime": "^0.13.5",
+    "tui-chart": "^3.11.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.2.0",
+    "style-loader": "^1.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  }
+}
