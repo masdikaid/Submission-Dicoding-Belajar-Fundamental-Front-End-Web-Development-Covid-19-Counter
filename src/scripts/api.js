@@ -1,5 +1,4 @@
 async function fetching() {
-    let result = []
     let data = await fetch("https://covid-193.p.rapidapi.com/statistics", {
         "method": "GET",
         "headers": {
@@ -8,23 +7,16 @@ async function fetching() {
         }
     })
     data = await data.json()
-    await data.response.forEach( d => {
-        let ar = {
+    data = await data.response.map( d => {
+            return {
             negara:d.country,
             positif:d.cases.active,
             sembuh:d.cases.recovered,
             meninggal:d.deaths.total,
             total:d.cases.total,
             }
-        result.push(ar)
-        })
-    return result
+    })
+    return data
 }
-
-// async function getFlagId(country){
-//     let flagid = await fetch(`https://restcountries.eu/rest/v2/name/${country.replace("-"," ")}?fullText=true`)
-//     flagid = await flagid.json()
-//     return flagid = {id:flagid[0].alpha2Code,flag:flagid[0].flag}
-// }
 
 export {fetching};
