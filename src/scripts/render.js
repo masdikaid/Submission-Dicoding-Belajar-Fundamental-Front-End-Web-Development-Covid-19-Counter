@@ -1,14 +1,23 @@
 import chart from 'tui-chart'
 
 function renderContentDunia(data){
+    let arr = {
+        positif:0,
+        sembuh:0,
+        meninggal:0,
+        total:0
+    }
     data.forEach( d => {
-        setTimeout(()=>{
-            setInnerDunia("terkonfirmasi",parseInt(getInnerDunia("terkonfirmasi"))+d.positif)
-            setInnerDunia("sembuh",parseInt(getInnerDunia("sembuh"))+d.sembuh)
-            setInnerDunia("meninggal",parseInt(getInnerDunia("meninggal"))+d.meninggal)
-            setInnerDunia("total",parseInt(getInnerDunia("total"))+d.total)
-        },500)
+        arr.positif += d.positif
+        arr.sembuh += d.sembuh
+        arr.meninggal += d.meninggal
+        arr.total += d.total
     })
+    const element = document.createElement("content-dunia")
+    element.data = arr
+    const target = document.getElementById("main")
+    target.insertBefore(element, target.firstChild)
+    renderGrafik(arr)
 }
 
 function getInnerDunia(id){
@@ -20,42 +29,13 @@ function setInnerDunia(id, value){
 }
 
 function renderItemNegara(data){
-    const element = document.getElementById("section")
-    data.forEach( items => {
-        const news = document.createElement("article")
-    news.classList.add("card-sm","col-md-6","col-lg-4","my-2","container")
-    news.innerHTML=`
-                <div class="shadow-sm card">
-                <header class="p-2"><h4 class="font-weight-bold ml-3 my-2" >${items.negara}</h4></header>
-                <div class="container d-flex">
-                    <div class="flex-grow-1">
-                        <div>
-                            <header><p class=" my-0 font-weight-bold" >Positif</p></header>
-                            <h6 class="my-0 mb-1 font-weight-bold">${items.positif}</h6>
-                        </div>
-                        <div class="d-flex">
-                            <div class="flex-grow-1">
-                                <header><p class="my-0 font-weight-bold" >Sembuh</p></header>
-                                <h6 class="my-0 font-weight-bold">${items.sembuh}</h6>
-                            </div>
-                            <div class="flex-grow-1">
-                                <header><p class="my-0 font-weight-bold">Meninggal</p></header>
-                                <h6 class="my-0 font-weight-bold">${items.meninggal}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1 card p-2 mb-4 justify-content-center align-items-center border-danger">
-                        <header><p class="font-weight-bold" >Total</p></header>
-                        <h4 class="font-weight-bold" >${items.total}</h4>
-                    </div>
-                </div>
-            </div>
-        `
-        element.appendChild(news)
-    })
+    const elements = document.createElement('negara-container')
+    elements.contents = data
+    document.getElementById('section').appendChild(elements)
+
 }
 
-function renderGrafik(){
+function renderGrafik(datas){
     setTimeout(()=>{
         const element = document.querySelector("#grafik")
         const data = {
@@ -63,15 +43,15 @@ function renderGrafik(){
             series: [
                 {
                     name: 'Positif',
-                    data: getInnerDunia("terkonfirmasi")
+                    data: datas.positif
                 },
                 {
                     name: 'sembuh',
-                    data: getInnerDunia("sembuh")
+                    data: datas.sembuh
                 },
                 {
                     name: 'Meninggal',
-                    data: getInnerDunia("meninggal")
+                    data: datas.meninggal
                 },
             ]
         }
@@ -128,4 +108,4 @@ function renderGrafik(){
 
 }
 
-export {renderContentDunia, renderItemNegara, renderGrafik}
+export {renderContentDunia, renderItemNegara}
