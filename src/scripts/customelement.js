@@ -79,7 +79,6 @@ class ContentCountryElement extends HTMLElement {
     }
 
     render(){
-        console.log(this._data)
         this.classList.add("col-md-6","col-lg-4","my-2")
         this.innerHTML=`
             <div class="card shadow-sm">
