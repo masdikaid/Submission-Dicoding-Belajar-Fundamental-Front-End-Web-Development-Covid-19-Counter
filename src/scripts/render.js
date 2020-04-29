@@ -20,19 +20,10 @@ function renderContentDunia(data){
     renderGrafik(arr)
 }
 
-function getInnerDunia(id){
-    return document.querySelector(`#${id}`).innerHTML;
-}
-
-function setInnerDunia(id, value){
-    document.querySelector(`#${id}`).innerHTML= `${value}`
-}
-
 function renderItemNegara(data){
     const elements = document.createElement('negara-container')
     elements.contents = data
     document.getElementById('section').appendChild(elements)
-
 }
 
 function renderGrafik(datas){
